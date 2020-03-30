@@ -11,7 +11,6 @@ import { Navbar, Nav } from "react-bootstrap";
 
 //Page Section
 import Landing from "./pages/Landing";
-// import About from "./pages/About";
 import Detail from "./pages/Detail";
 
 import reduxStore from './redux/store';

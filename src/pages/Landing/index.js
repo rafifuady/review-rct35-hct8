@@ -47,9 +47,6 @@ render() {
           </Card>
         </Container>
         {/* Detail {loadingProfile ? '...Loading': selectedOmdb} */}
-        {selectedOmdb.Title}
-        {selectedOmdb.Year}
-        
         
       </div>
       <table className="table">
