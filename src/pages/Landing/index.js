@@ -2,6 +2,9 @@ import React from "react";
 import {connect} from 'react-redux'
 import { fetchOmdbAction, fetchMovieDetail } from '../../redux/action';
 import { Card, Container, ListGroup,ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Detail from "../Detail";
+
 
 class Landing extends React.Component{
 componentDidMount() {
@@ -11,7 +14,8 @@ componentDidMount() {
 
 selectMovie = (urlDetail) => {
   this.props.fetchMovieDetail(urlDetail)
-  console.log(this.props)
+  this.props.history.push(`/detail/${urlDetail}`)
+  // console.log(this.props)
 }
 
 render() {
@@ -72,6 +76,8 @@ render() {
                     <td>
                     {/* <p>{data.imdbID}</p> */}
                     <button onClick={()=> this.selectMovie(data.imdbID)}>Detail</button>
+
+                    <Link to={'/Detail/'+data.imdbID} children={Detail}>Detail</Link>
                     {/* {console.log(this.selectMovie())} */}
                     </td>
                 </tr>

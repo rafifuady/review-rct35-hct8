@@ -1,26 +1,28 @@
 import React from "react";
 import {connect} from 'react-redux'
+import { useParams} from "react-router-dom";
 import { fetchOmdbAction, fetchMovieDetail } from '../../redux/action';
 import { Card, Container, ListGroup,ListGroupItem } from "react-bootstrap";
 
-class Landing extends React.Component{
+class Detail extends React.Component{
 componentDidMount() {
+    // let {}    
     //fetch API 
-    this.props.fetchMovieDetail()
+    console.log(this.props)
+    this.props.fetchMovieDetail(this.props.match.params.imdbId)
+    
 }
 
-selectMovie = (urlDetail) => {
-  this.props.fetchMovieDetail(urlDetail)
-  console.log(this.props)
-}
 
-render() {
-        const { selectedOmdb } = this.props
 
+render(props) {
+  // console.log(this.props)      
+  const { selectedOmdb } = this.props
   return(
     <React.Fragment>
       <div>
         <Container>
+          
           <Card>
             <img src={selectedOmdb.Poster} className="card-img" alt="pic"></img>
             <Card.Title>{selectedOmdb.Title}</Card.Title>
@@ -70,4 +72,4 @@ const mapDispatchToProps = {
   fetchMovieDetail
 
 }
-export default connect (mapStateToProps, mapDispatchToProps)(Landing)
+export default connect (mapStateToProps, mapDispatchToProps)(Detail)

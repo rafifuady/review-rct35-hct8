@@ -36,7 +36,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             {/* <Route path="/About" component={About} /> */}
-            <Route path="/Detail" component={Detail} />
+            {/* <Route path="/Detail:params" component={Detail} /> */}
+            <Route path="/detail/:imdbId" component={Detail} />
             <Route component={() => <div>404 Not Found ErrorPage</div>} />
           </Switch>
         </Router>

@@ -31,9 +31,10 @@ export const fetchMovieDetail = (params) => {
             type: 'FETCH_OMDB_DETAIL'
         })
         let link= 'https://www.omdbapi.com/?apikey=57f95c5c&i='+params
+        // console.log(link)
         axios.get(link)
         .then(res => {
-            console.log(res)
+            // console.log(res.data)
             dispatch({
                 type: 'FETCH_DETAIL_SUCCESS',
                 payload:res.data
